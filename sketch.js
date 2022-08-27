@@ -12,7 +12,7 @@ var img;
 // PRELOAD SONG //
 function preload() {
   song = loadSound("SnakeTheme.mp3");
-  img = loadImage('vapor.png');
+  img = loadImage("vapor.png");
 }
 
 // SETUP //
@@ -23,22 +23,21 @@ function setup() {
   frameRate(10);
   // create pause botton
   const pausedButton = createButton("pause");
-  pausedButton.position(5, 5); 
-  pausedButton.style("font-weight", "bold")
+  pausedButton.position(5, 5);
+  pausedButton.style("font-weight", "bold");
   pausedButton.style("background-color", "transparent");
   pausedButton.style("color", "white");
   pausedButton.style("border", "solid");
   pausedButton.elt.addEventListener("click", function () {
     paused = true;
   });
-  drawLoadingScreen();
-
 }
 
 function resetSnakeGame() {
   scl = 15;
   totalPoints = 0;
   livesLeft = 3;
+  snakeColor = "white";
   newSnake();
   song.stop();
   song.loop();
@@ -89,10 +88,6 @@ function draw() {
   }
 }
 
-function drawLoadingScreen() {
-  snakeColor = "white";
-}
-
 function drawGameScreen() {
   // draw background and border
   image(img, 0, 0);
@@ -100,11 +95,8 @@ function drawGameScreen() {
   rect(0, 0, width, height);
 
   // draw game stats
-  stroke("white");
-  strokeWeight(2);
-  rect(width - 95,3, 90, 43);
   fill("white");
-    textStyle(BOLD);
+  textStyle(BOLD);
   noStroke();
   text(
     `total points: ${totalPoints}\nlives left: ${livesLeft}`,
@@ -121,7 +113,7 @@ function drawFood() {
   }
 
   // draw food
-  fill(240, 103, 12)
+  fill(240, 103, 12);
   noStroke();
   rect(food.x, food.y, scl, scl);
 }
