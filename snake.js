@@ -29,7 +29,7 @@ function Snake() {
   
   this.show = function () {
     //Print rectangles
-    fill(snakeColor);
+    fill("white");
     noStroke();
     for (var i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x, this.tail[i].y, scl, scl);
